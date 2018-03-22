@@ -1,5 +1,5 @@
 class ListingController < ApplicationController
   def index
-    render :index, locals: { posts: Post.limit(2) }
+    render :index, locals: { posts: Post.page(params[:page]) }
   end
 end
