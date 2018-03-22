@@ -1,3 +1,27 @@
-<% users.each do |user| %>
-  <%= user.name %></br>
-<% end %>
+<div class='container'>
+  <% posts.each do |post| %>
+    <div class='row'>
+      <div class='col-sm' id='post-title'>
+	<h1><%= post.title %></br></h1>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-sm'>
+	<%= post.content %></br>
+      </div>
+    </div>
+
+    <div class='row'>
+      <div class='col-sm'>
+        <h3>Comments:</h3>
+        <% post.comments.each do |comment| %>
+          <div class='row'>
+            <div class='col-sm'>
+              <%= "#{comment.user.name}: #{comment.content}" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
